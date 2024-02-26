@@ -3,10 +3,11 @@ import './Gallery.css';
 
 const Gallery = () => {
   const [imageNames, setImageNames] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/images') // Update this line
+    fetch('http://localhost:3001/images')
       .then(response => response.json())
       .then(data => {
         setImageNames(data);
@@ -14,15 +15,22 @@ const Gallery = () => {
       })
       .catch(error => {
         console.error('Error fetching images:', error);
-        // Handle the error state as needed
+        setLoading(false);
       });
   }, []);
-  
 
   const imagePath = (imageName) => {
     return `http://localhost:3001/image/${encodeURIComponent(imageName)}`;
   };
   
+
+  const handleImageClick = (imageName) => {
+    setSelectedImage(imageName);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
 
   if (loading) return <div>Loading...</div>;
 
@@ -33,11 +41,21 @@ const Gallery = () => {
       </header>
       <div className="image-grid">
         {imageNames.map((imageName, index) => (
-          <div key={index} className="image-item">
+          <div key={index} className="image-item" onClick={() => handleImageClick(imageName)}>
             <img src={imagePath(imageName)} alt={`Artwork ${index + 1}`} />
           </div>
         ))}
       </div>
+
+      {selectedImage && (
+        <div className="modal" onClick={handleCloseModal}>
+          <img 
+            src={imagePath(selectedImage)} 
+            alt="Enlarged Artwork" 
+            className="enlarged-image" 
+          />
+        </div>
+      )}
     </div>
   );
 };
