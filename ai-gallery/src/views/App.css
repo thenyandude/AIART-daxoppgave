@@ -64,10 +64,40 @@
   }
 }
 
-.footer a {
+.title a {
   display: inline-block;
   margin: 0 10px;
   color: #000; /* Change as needed */
   text-decoration: none; /* Optional */
 }
+
+/* Rest of the CSS remains the same */
+
+.carousel img.slideIn {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.carousel img.slideOut {
+  animation: slideOut 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 }
