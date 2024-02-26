@@ -1,31 +1,73 @@
+/* App.css */
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.header {
+.header, .footer {
   text-align: center;
+  width: 100%;
 }
 
-.image-placeholder {
-  width: 300px; /* Adjust as needed */
-  height: 200px; /* Adjust as needed */
-  background-color: #ccc; /* Placeholder color */
-  margin: 20px 0;
+.image-container {
+  width: 100%; /* Use 100% of the container width */
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin: 20px 0;
+}
+
+.image-container img {
+  width: 100%; /* Responsive image */
+  max-width: 300px; /* Maximum width to not be too large */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .footer {
-  text-align: center;
+  margin-top: auto; /* Push the footer to the bottom */
 }
 
-.small-placeholder {
-  width: 200px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
-  background-color: #ccc; /* Placeholder color */
-  margin: 20px 0;
+@media (max-width: 768px) {
+  .header h1, .footer p {
+    margin: 10px 0;
+  }
+
+  /* If you want the image to be larger on smaller screens */
+  .image-container img {
+    max-width: 80vw;
+  }
+
+
+  /* Rest of the CSS remains the same */
+
+.carousel {
+  width: 100%;
+  overflow: hidden; /* Hide the images that overflow */
+}
+
+.carousel img {
+  width: 100%;
+  max-width: 300px;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.footer a {
+  display: inline-block;
+  margin: 0 10px;
+  color: #000; /* Change as needed */
+  text-decoration: none; /* Optional */
+}
 }
