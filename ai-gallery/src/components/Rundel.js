@@ -8,7 +8,7 @@ const Rundel = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/images')
+    fetch('http://10.12.5.110:3001/images')
       .then(response => response.json())
       .then(data => {
         setImages(data);
@@ -40,7 +40,7 @@ const Rundel = () => {
   }, [currentIndex, images.length]);
 
   const imagePath = (imageName) => {
-    return `http://localhost:3001/image/${encodeURIComponent(imageName)}`;
+    return `http://10.12.5.110:3001/image/${encodeURIComponent(imageName)}`;
   };
 
   if (loading) return <div>Loading...</div>;
