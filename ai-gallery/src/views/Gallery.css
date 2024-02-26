@@ -1,0 +1,53 @@
+.gallery {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates a 2-column grid */
+  gap: 20px;
+  width: 100%;
+  max-width: 600px; /* Adjust the max-width as per your design */
+}
+
+.image-item {
+  background-color: #ccc; /* Placeholder for image background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1; /* Makes the item a square */
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image is not stretched */
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* High z-index to be on top of other elements */
+}
+
+.enlarged-image {
+  max-width: 80%; /* Adjust as needed */
+  max-height: 80%; /* Adjust as needed */
+  margin: auto;
+}
