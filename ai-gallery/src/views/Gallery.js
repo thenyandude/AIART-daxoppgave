@@ -22,7 +22,6 @@ const Gallery = () => {
   const imagePath = (imageName) => {
     return `http://localhost:3001/image/${encodeURIComponent(imageName)}`;
   };
-  
 
   const handleImageClick = (imageName) => {
     setSelectedImage(imageName);
@@ -33,6 +32,10 @@ const Gallery = () => {
   };
 
   if (loading) return <div>Loading...</div>;
+
+  if (imageNames.length === 0) {
+    return <div className="no-images-message">O/AI MAKES NO ART, MAKE SOME INSTEAD, OR LEAVE THAT TO SUCKERBURGZ &lt;3</div>;
+  }
 
   return (
     <div className="gallery">

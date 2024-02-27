@@ -13,7 +13,9 @@ const App = () => {
             <>
               <Header />
               <Title />
+              <div className="rundel-container">
               <Rundel />
+            </div>
             </>
           } />
           <Route path="/gallery" element={<Gallery />} />
@@ -29,7 +31,7 @@ const Header = () => {
       <h1>Computer</h1>
       <div className="image-container">
       <img 
-  src={`http://10.12.5.110:3001/image/${encodeURIComponent("DALL·E 2024-02-25 13.56.23 - Visualize a high-performance computer with a transparent case, as seen through the artistic lens of 12th century Japan. This concept marries the sophi.webp")}`} 
+  src={`http://localhost:3001/image/${encodeURIComponent("DALL·E 2024-02-25 13.56.23 - Visualize a high-performance computer with a transparent case, as seen through the artistic lens of 12th century Japan. This concept marries the sophi.webp")}`} 
   alt="Artistic High-Performance Computer" 
 />
       </div>
