@@ -38,7 +38,7 @@ const Rundel = () => {
 
     return () => clearTimeout(timer);
   }, [currentIndex, images.length]);
-
+  
   const imagePath = (imageName) => {
     return `http://localhost:3001/image/${encodeURIComponent(imageName)}`;
   };
